@@ -19,7 +19,7 @@ team_runner bigint,
 goals int,
     subscription varchar(20),
 global_team_points int,
-global_goal_points int
+global_goal_points bigint
 );
 
 create table ef_roles(
