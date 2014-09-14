@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar target/eFifaApp.jar
+web:    java $JAVA_OPTS -DeFifa.port=$PORT -jar target/eFifaApp.jar

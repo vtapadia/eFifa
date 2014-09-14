@@ -18,7 +18,7 @@ team_winner bigint,
 team_runner bigint,
 goals int,
     subscription varchar(20),
-global_team_points int,
+global_team_points bigint,
 global_goal_points bigint
 );
 
@@ -64,5 +64,5 @@ match_date timestamp,
 match_type varchar(50)
 );
 
-
+create sequence hibernate_sequence increment by 1 minvalue 1;
 
