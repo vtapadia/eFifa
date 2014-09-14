@@ -17,9 +17,6 @@ public class AppConfig {
     @Value("${eFifa.enviroment:local}")
     String environment;
 
-    @Value("${eFifa.port:8014}")
-    Integer port;
-
     /**
      * Environment variable set as the application directory
      */
@@ -30,7 +27,6 @@ public class AppConfig {
     public EmbeddedServletContainerFactory servletContainer() {
         JettyEmbeddedServletContainerFactory jetty = new JettyEmbeddedServletContainerFactory();
         jetty.setContextPath("/eFifa");
-        jetty.setPort(port);
         log.debug("Environment setup for : " + environment);
         try {
             String documentRoot;
