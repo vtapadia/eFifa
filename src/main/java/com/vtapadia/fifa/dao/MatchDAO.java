@@ -64,7 +64,7 @@ public class MatchDAO extends AbstractDAO {
 
     public List<Match> getAllFrozenMatches() {
         Query query = entityManager.createNativeQuery("select * from ef_match " +
-                "where match_date<=sysdate order by match_date desc" //future matches
+                "where match_date<=current_timestamp order by match_date desc" //future matches
                 , // teams are decided
                 Match.class);
         return query.getResultList();

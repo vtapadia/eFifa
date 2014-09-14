@@ -57,9 +57,9 @@ efifaAppCtrls.controller('efifaUserCtrl', function($scope, $http, UserService, T
     $scope.slides =[
         //    {image:'img/groups.jpg', text:''},
         //{image:'img/brazil-fan2.jpg', text:''},
-        {image:'img/sf1-i1.jpg', text:''},
-        {image:'img/sf1-i2.jpg', text:''},
-        {image:'img/sf1-i3.jpg', text:''}
+        //{image:'img/sf1-i1.jpg', text:''},
+        //{image:'img/sf1-i2.jpg', text:''},
+        //{image:'img/sf1-i3.jpg', text:''}
     ];
 
     TournamentService.started().then(function(data) {

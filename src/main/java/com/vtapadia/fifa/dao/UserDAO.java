@@ -14,6 +14,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -55,6 +57,7 @@ public class UserDAO extends AbstractDAO {
             roles.setRole(Roles.DefinedRole.USER);
             entityManager.persist(roles);
         }
+        user.setLastUpdated(new Date());
         entityManager.persist(user);
         return true;
     }
@@ -84,9 +87,9 @@ public class UserDAO extends AbstractDAO {
         return query.getResultList();
     }
 
-    public List<BigDecimal> getDistinctPoints() {
+    public List<BigInteger> getDistinctPoints() {
         Query query = entityManager.createNativeQuery("select distinct (points+global_team_points+global_goal_points) as totalPoints from ef_user order by totalPoints desc");
-        return (List<BigDecimal>) query.getResultList();
+        return (List<BigInteger>) query.getResultList();
     }
 
     public int getRegisteredUserCount() {

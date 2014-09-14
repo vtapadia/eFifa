@@ -19,6 +19,10 @@ public class Match {
     private long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tournament", nullable = true)
+    private Tournament tournament;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "team_a", nullable = true)
     private Team teamA;
 

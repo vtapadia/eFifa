@@ -1,19 +1,9 @@
 package com.vtapadia.fifa.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Version;
+import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "ef_user")
@@ -48,7 +38,6 @@ public class User {
     @Column(name = "joining_date")
     private Date joiningDate;
     @Column(name = "last_updated")
-    @Version
     private Date lastUpdated;
 
     @Column(name = "global_team_points")
@@ -56,6 +45,14 @@ public class User {
 
     @Column(name = "global_goal_points")
     private long globalGoalPoints;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "ef_user_league",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "league_id")
+    )
+    private Set<League> leagues;
 
     public long getId() {
         return id;

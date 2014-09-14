@@ -74,7 +74,7 @@ public class MatchService {
 
     public boolean isSecondStageStarted() {
         List<Match> matches = matchDAO.getSecondStageMatches();
-        if (matches.get(0).getMatchDate().before(new Date())) {
+        if (matches!= null && matches.size()>0 && matches.get(0).getMatchDate().before(new Date())) {
             return true;
         }
         return false;

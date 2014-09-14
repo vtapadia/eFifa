@@ -22,6 +22,7 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -397,7 +398,7 @@ public class UserService {
     }
 
     private int getRank(long points) {
-        List<BigDecimal> pointsList = userDao.getDistinctPoints();
+        List<BigInteger> pointsList = userDao.getDistinctPoints();
         if (pointsList.size() ==1 && pointsList.get(0).longValue()==0) {
             return 0;
         } else {
