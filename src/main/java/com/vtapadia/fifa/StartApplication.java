@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
  *
  * Following properties are required to be set
  *  eFifa.environment : (default:local) local/prod/test
+ *  eFifa.db : (default:postgresql) oracle/postgresql
  *  eFifa.db.url : URL of the database
  *  eFifa.db.username : self explanatory
  *  eFifa.db.password : self explanatory

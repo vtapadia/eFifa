@@ -20,6 +20,9 @@ import java.util.Properties;
 @EnableTransactionManagement
 public class DatabaseConfig {
 
+    @Value("${eFifa.db:postgresql}")
+    String database;
+
     @Value("${eFifa.db.url}")
     String databaseUrl;
 
@@ -32,7 +35,15 @@ public class DatabaseConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+        switch (database) {
+            case "oracle":
+                dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+                break;
+            case "postgresql":
+            default:
+                dataSource.setDriverClassName("org.postgresql.Driver");
+                break;
+        }
         dataSource.setUrl(databaseUrl);
         dataSource.setUsername(databaseUsername);
         dataSource.setPassword(databasePassword);
@@ -51,7 +62,15 @@ public class DatabaseConfig {
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-        adapter.setDatabase(Database.ORACLE);
+        switch (database) {
+            case "oracle":
+                adapter.setDatabase(Database.ORACLE);
+                break;
+            case "postgresql":
+            default:
+                adapter.setDatabase(Database.POSTGRESQL);
+                //break;
+        }
         adapter.setShowSql(false);
         adapter.setGenerateDdl(false);
         return adapter;
@@ -80,7 +99,15 @@ public class DatabaseConfig {
 
     public Properties hibernateProperties() {
         Properties prop = new Properties();
-        prop.setProperty("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
+        switch (database) {
+            case "oracle":
+                prop.setProperty("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
+                break;
+            case "postgresql":
+            default:
+                prop.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQL9Dialect");
+                break;
+        }
         prop.setProperty("hibernate.show_sql","false");
         prop.setProperty("hibernate.hbm2ddl.auto","validate");
         return prop;

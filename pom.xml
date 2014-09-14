@@ -16,6 +16,7 @@
         <spring.version>4.0.1.RELEASE</spring.version>
         <spring.security.version>3.2.1.RELEASE</spring.security.version>
         <oracle.version>11.2.0.2.0</oracle.version>
+        <postgresql.version>9.3-1102-jdbc4</postgresql.version>
         <hibernate.version>4.3.1.Final</hibernate.version>
         <apache.commons>3.3.2</apache.commons>
         <guava.version>17.0</guava.version>
@@ -65,6 +66,11 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>com.oracle</groupId>
