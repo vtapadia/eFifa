@@ -26,18 +26,21 @@ public class AppConfig {
     @Bean
     public EmbeddedServletContainerFactory servletContainer() {
         JettyEmbeddedServletContainerFactory jetty = new JettyEmbeddedServletContainerFactory();
-        jetty.setContextPath("/eFifa");
+        //jetty.setContextPath("/eFifa");
         log.info("Environment setup for : " + environment);
         log.info("userDirectory set to " + userDirectory);
         try {
             String documentRoot;
             switch(environment) {
-                case "prod":
                 case "test":
                     documentRoot = userDirectory + File.separator + "eFifaApp.jar";
                     break;
                 case "local":
                     documentRoot = userDirectory + File.separator + "src//main//resources";
+                    break;
+                case "prod":
+                case "heroku":
+                    documentRoot = "src//main//resources";
                     break;
                 default:
                     throw new RuntimeException("environment not set or incorrect value");
