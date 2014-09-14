@@ -1,0 +1,88 @@
+
+    <table style="width: 95%" align="center" ng-controller="efifaUserCtrl">
+        <tr>
+            <td colspan="2">
+                <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+            </td>
+        </tr>
+        <tr style="vertical-align: top">
+            <td style="width: 50%">
+                Hello {{user.name}}<br><br>
+                Your correct rank in this tournament is {{user.rank}}<br><br>
+                <div style="height:525px; width:95%; overflow:auto; background-color: rgba(240, 255, 255, 0.5); float: left" ng-show="leaders">
+                    <table class="table" style="width: 100%">
+                        <tr>
+                            <th colspan="4" style="text-align: center; color: seagreen">
+                                Users Global Predictions
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Winner</th>
+                            <th>Runner Up</th>
+                            <th style="white-space: nowrap">Goals</th>
+                        </tr>
+                        <tr ng-repeat="leader in leaders">
+                            <td style="white-space: nowrap">{{leader.name}}</td>
+                            <td style="white-space: nowrap"><span class="flagsp" ng-class="leader.teamWinner.image" title="{{leader.teamWinner.name}}"></span> {{leader.teamWinner.name}}</td>
+                            <td style="white-space: nowrap"><span class="flagsp" ng-class="leader.teamRunner.image" title="{{leader.teamRunner.name}}"></span> {{leader.teamRunner.name}}</td>
+                            <td>{{leader.goals}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td style="width: 50%; height: auto">
+                <accordion close-others="true">
+                    <accordion-group heading="Your Global Predictions" is-open="false">
+                        <div style="white-space: nowrap"><label style="white-space: nowrap" class="label label-default">Tournament Winner : </label>
+                            <select style="width: 220px; display: inline" class="form-control" ng-disabled="started" ng-model="user.teamWinner" ng-options="team.name for team in teams">
+                                <option value="">-- choose Team --</option>
+                            </select>
+                        </div><br>
+                        <div style="white-space: nowrap"><label style="white-space: nowrap" class="label label-default">Tournament Runner's Up : </label>
+                            <select style="width: 220px; display: inline" class="form-control" ng-disabled="started" ng-model="user.teamRunner" ng-options="team.name for team in teams">
+                                <option value="">-- choose Team --</option>
+                            </select>
+                        </div><br>
+                        <div style="white-space: nowrap"><label style="white-space: nowrap" class="label label-default">Total Goals : </label>
+                            <input style="display: inline; width: 220px" type="number" class="form-control"  style="width: 70px" ng-disabled="started" ng-model="user.goals" />
+                        </div><br>
+                        <div><button type="button" class="btn btn-default" ng-disabled="started" ng-click="submitGlobalPrediction()">Update</button></div>
+                    </accordion-group>
+                    <accordion-group heading="Your Points Distribution" ng-show="started" is-open="true">
+                        <div class="row" style="white-space: nowrap">
+                            <div class="col-md-4">Score predictions </div><div class="col-md-2">{{user.points - user.globalTeamPoints - user.globalGoalPoints}}</div>
+                        </div>
+                        <div class="row" style="white-space: nowrap">
+                            <div class="col-md-4">Global Team predictions </div><div class="col-md-2">{{user.globalTeamPoints}}</div>
+                        </div>
+                        <div class="row" style="white-space: nowrap">
+                            <div class="col-md-4">Global Goal predictions </div><div class="col-md-2">{{user.globalGoalPoints}}</div>
+                        </div>
+                        <div class="row" style="white-space: nowrap">
+                            <div class="col-md-4">Total </div><div class="col-md-2">{{user.points}}</div>
+                        </div>
+                    </accordion-group>
+                    <accordion-group heading="Change Password" is-open="false">
+                    <div style="white-space: nowrap">
+                            <label class="label label-default">New Password : </label><input class="form-control" style="display: inline; width: 220px" type="password" ng-model="newpassword" />
+                        </div>
+                        <div><button class="btn btn-default" ng-click="changepassword(newpassword)">Save</button></div>
+                    </accordion-group>
+                </accordion>
+                <br>
+                <div style="width: 100%">
+                    <carousel interval="4000">
+                        <slide ng-repeat="slide in slides" active="slide.active">
+                            <img ng-src="{{slide.image}}" style="background: rgba(0, 0, 0, 0.8); margin:auto;">
+                            <div class="carousel-caption">
+                                <p>{{slide.text}}</p>
+                            </div>
+                        </slide>
+                    </carousel>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+

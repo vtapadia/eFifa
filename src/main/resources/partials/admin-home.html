@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <table style="width: 100%; height: 100%">
+        <tr style="vertical-align: top">
+            <td style="width: 50%">
+                <table>
+                    <caption>
+                        Register New User
+                    </caption>
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            <input type="text" ng-model="user.name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Email
+                        </td>
+                        <td>
+                            <input type="text" ng-model="user.email" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            UserId
+                        </td>
+                        <td>
+                            <input type="text" ng-model="user.user_id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Password
+                        </td>
+                        <td>
+                            <input type="password" ng-model="user.password"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Subscription
+                        </td>
+                        <td>
+                            <select ng-model="user.subscription" ng-options="subscription for subscription in subscriptions">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button ng-click="registerUser()">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <caption>
+                        More Admin tasks
+                    </caption>
+                    <tr>
+                        <td>
+                            UserId
+                        </td>
+                        <td>
+                            <input type="text" ng-model="userid"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button ng-click="setDefaultPassword()">Reset Password</button>
+                        </td>
+                        <td>
+                            <button ng-click="setDefaultPredictions()">Default Predictions</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="btn btn-default" ng-click="setFuturePredictions()">Set Future Match Predictions</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button class="btn btn-danger" ng-click="finalizeTournament()">Finalize Tournament</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 50%">
+                <table>
+                    <caption nowrap>Finalize completed matches</caption>
+                    <tr  ng-repeat="match in frozenMatches" style="height: 30px">
+                        <td style="width: 21px">
+                            <span class="flagsp" ng-class="match.teamAImage"></span>
+                        </td>
+                        <td style="width: 140px">
+                            {{match.teamAName}}
+                        </td>
+                        <td>
+                            <input type="text" ng-disabled="match.finalized==true" maxlength="2" size="2" style="width: 24px" ng-model="match.teamAScore" ng-pattern="/^\d+$/" />
+                            :
+                            <input type="text" ng-disabled="match.finalized==true" maxlength="2" size="2" style="width: 24px" ng-model="match.teamBScore" ng-pattern="/^\d+$/" />
+                        </td>
+                        <td align="right" style="width: 140px">
+                            {{match.teamBName}}
+                        </td>
+                        <td style="width: 21px">
+                            <span class="flagsp" ng-class="match.teamBImage"></span>
+                        </td>
+                        <td style="padding-left: 10px">
+                            <button ng-if="match.finalized == false" ng-click="finalizeMatch(match,$index)">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

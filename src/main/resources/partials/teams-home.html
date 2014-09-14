@@ -1,0 +1,513 @@
+<table style="width: 95%; background-color: rgba(240, 255, 255, 0.5)" align="center" ng-controller="efifaTeamsCtrl">
+    <tr>
+        <td>
+            <select class="form-control dropdown" style="width: 200px" ng-model="mySelectedOption" ng-options="x.name for x in myOptions"></select>
+        </td>
+    </tr>
+    <tr ng-show="mySelectedOption.name=='Group Stage'">
+        <td>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group A</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[0].name}}</td>
+                    <td>{{teams[0].gf}}</td>
+                    <td>{{teams[0].ga}}</td>
+                    <td>{{teams[0].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[1].name}}</td>
+                    <td>{{teams[1].gf}}</td>
+                    <td>{{teams[1].ga}}</td>
+                    <td>{{teams[1].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[2].name}}</td>
+                    <td>{{teams[2].gf}}</td>
+                    <td>{{teams[2].ga}}</td>
+                    <td>{{teams[2].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[3].name}}</td>
+                    <td>{{teams[3].gf}}</td>
+                    <td>{{teams[3].ga}}</td>
+                    <td>{{teams[3].points}}</td>
+                </tr>
+            </table>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group B</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[4].name}}</td>
+                    <td>{{teams[4].gf}}</td>
+                    <td>{{teams[4].ga}}</td>
+                    <td>{{teams[4].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[5].name}}</td>
+                    <td>{{teams[5].gf}}</td>
+                    <td>{{teams[5].ga}}</td>
+                    <td>{{teams[5].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[6].name}}</td>
+                    <td>{{teams[6].gf}}</td>
+                    <td>{{teams[6].ga}}</td>
+                    <td>{{teams[6].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[7].name}}</td>
+                    <td>{{teams[7].gf}}</td>
+                    <td>{{teams[7].ga}}</td>
+                    <td>{{teams[7].points}}</td>
+                </tr>
+            </table>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group C</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[8].name}}</td>
+                    <td>{{teams[8].gf}}</td>
+                    <td>{{teams[8].ga}}</td>
+                    <td>{{teams[8].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[9].name}}</td>
+                    <td>{{teams[9].gf}}</td>
+                    <td>{{teams[9].ga}}</td>
+                    <td>{{teams[9].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[10].name}}</td>
+                    <td>{{teams[10].gf}}</td>
+                    <td>{{teams[10].ga}}</td>
+                    <td>{{teams[10].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[11].name}}</td>
+                    <td>{{teams[11].gf}}</td>
+                    <td>{{teams[11].ga}}</td>
+                    <td>{{teams[11].points}}</td>
+                </tr>
+            </table>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group D</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[12].name}}</td>
+                    <td>{{teams[12].gf}}</td>
+                    <td>{{teams[12].ga}}</td>
+                    <td>{{teams[12].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[13].name}}</td>
+                    <td>{{teams[13].gf}}</td>
+                    <td>{{teams[13].ga}}</td>
+                    <td>{{teams[13].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[14].name}}</td>
+                    <td>{{teams[14].gf}}</td>
+                    <td>{{teams[14].ga}}</td>
+                    <td>{{teams[14].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[15].name}}</td>
+                    <td>{{teams[15].gf}}</td>
+                    <td>{{teams[15].ga}}</td>
+                    <td>{{teams[15].points}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr ng-show="mySelectedOption.name=='Group Stage'">
+        <td>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group E</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[16].name}}</td>
+                    <td>{{teams[16].gf}}</td>
+                    <td>{{teams[16].ga}}</td>
+                    <td>{{teams[16].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[17].name}}</td>
+                    <td>{{teams[17].gf}}</td>
+                    <td>{{teams[17].ga}}</td>
+                    <td>{{teams[17].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[18].name}}</td>
+                    <td>{{teams[18].gf}}</td>
+                    <td>{{teams[18].ga}}</td>
+                    <td>{{teams[18].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[19].name}}</td>
+                    <td>{{teams[19].gf}}</td>
+                    <td>{{teams[19].ga}}</td>
+                    <td>{{teams[19].points}}</td>
+                </tr>
+            </table>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group F</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[20].name}}</td>
+                    <td>{{teams[20].gf}}</td>
+                    <td>{{teams[20].ga}}</td>
+                    <td>{{teams[20].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[21].name}}</td>
+                    <td>{{teams[21].gf}}</td>
+                    <td>{{teams[21].ga}}</td>
+                    <td>{{teams[21].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[22].name}}</td>
+                    <td>{{teams[22].gf}}</td>
+                    <td>{{teams[22].ga}}</td>
+                    <td>{{teams[22].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[23].name}}</td>
+                    <td>{{teams[23].gf}}</td>
+                    <td>{{teams[23].ga}}</td>
+                    <td>{{teams[23].points}}</td>
+                </tr>
+            </table>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group G</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[24].name}}</td>
+                    <td>{{teams[24].gf}}</td>
+                    <td>{{teams[24].ga}}</td>
+                    <td>{{teams[24].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[25].name}}</td>
+                    <td>{{teams[25].gf}}</td>
+                    <td>{{teams[25].ga}}</td>
+                    <td>{{teams[25].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[26].name}}</td>
+                    <td>{{teams[26].gf}}</td>
+                    <td>{{teams[26].ga}}</td>
+                    <td>{{teams[26].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[27].name}}</td>
+                    <td>{{teams[27].gf}}</td>
+                    <td>{{teams[27].ga}}</td>
+                    <td>{{teams[27].points}}</td>
+                </tr>
+            </table>
+            <table style="width: 25%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">Group H</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[28].name}}</td>
+                    <td>{{teams[28].gf}}</td>
+                    <td>{{teams[28].ga}}</td>
+                    <td>{{teams[28].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[29].name}}</td>
+                    <td>{{teams[29].gf}}</td>
+                    <td>{{teams[29].ga}}</td>
+                    <td>{{teams[29].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[30].name}}</td>
+                    <td>{{teams[30].gf}}</td>
+                    <td>{{teams[30].ga}}</td>
+                    <td>{{teams[30].points}}</td>
+                </tr>
+                <tr>
+                    <td>{{teams[31].name}}</td>
+                    <td>{{teams[31].gf}}</td>
+                    <td>{{teams[31].ga}}</td>
+                    <td>{{teams[31].points}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr ng-show="mySelectedOption.name=='Second Stage'">
+        <td>
+            <table class="table text-center table-team-group">
+                <tr style="border-bottom: 2px double #080808 !important ">
+                    <th ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"></th>
+                    <th ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" style="text-align: center">Round of 16</th>
+                    <th ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></th>
+                    <th ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" style="text-align: center">Quarter-finals</th>
+                    <th ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></th>
+                    <th ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" style="text-align: center">Semi-finals</th>
+                    <th ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle"></th>
+                    <th ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle" style="text-align: center">Final</th>
+                    <th ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle"></th>
+                    <th ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" style="text-align: center">Semi-finals</th>
+                    <th ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></th>
+                    <th ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" style="text-align: center">Quarter-finals</th>
+                    <th ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></th>
+                    <th ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" style="text-align: center">Round of 16</th>
+                    <th ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"></th>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-left" rowspan="3" ><div><span>Match 49</span></div></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[0].teamAName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[2].teamAName}}</td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-right" rowspan="3"><div><span>Match 51</span></div></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[0].teamAImage"></span> {{secondstageMatches[0].teamAScore}} - {{secondstageMatches[0].teamBScore}} ({{secondstageMatches[0].teamAPenalty}}-{{secondstageMatches[0].teamBPenalty}}) <span class="flagsp" ng-class="secondstageMatches[0].teamBImage"></span></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="rotate-left" rowspan="5" ><div class="rotate-left-qf"><span>Match 57</span></div></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-top match-winner">{{secondstageMatches[8].teamAName}}</td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" colspan="2"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" colspan="2"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-top match-winner">{{secondstageMatches[10].teamAName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="rotate-right" rowspan="5" ><div class="rotate-right-qf"><span>Match 59</span></div></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[2].teamAImage"></span> {{secondstageMatches[2].teamAScore}} - {{secondstageMatches[2].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[2].teamBImage"></span></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[0].teamBName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[2].teamBName}}</td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"><span class="flagsp" ng-class="secondstageMatches[8].teamAImage"></span> {{secondstageMatches[8].teamAScore}} - {{secondstageMatches[8].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[8].teamBImage"></span></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"><span class="flagsp" ng-class="secondstageMatches[10].teamAImage"></span> {{secondstageMatches[10].teamAScore}} - {{secondstageMatches[10].teamBScore}} ({{secondstageMatches[10].teamAPenalty}}-{{secondstageMatches[10].teamBPenalty}}) <span class="flagsp" ng-class="secondstageMatches[10].teamBImage"></span></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-left" rowspan="3" ><div><span>Match 50</span></div></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[1].teamAName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" class="rotate-left" rowspan="7" ><div class="rotate-left-sf"><span>Match 61</span></div></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" class="match-top match-loser">{{secondstageMatches[12].teamAName}}</td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle" class="match-top match-left match-right">F I N A L</td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" class="match-top match-loser">{{secondstageMatches[13].teamAName}}</td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" class="rotate-right" rowspan="7" ><div class="rotate-right-sf"><span>Match 62</span></div></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[3].teamAName}}</td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-right" rowspan="3"><div><span>Match 52</span></div></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[1].teamAImage"></span> {{secondstageMatches[1].teamAScore}} - {{secondstageMatches[1].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[1].teamBImage"></span></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-bottom match-loser">{{secondstageMatches[8].teamBName}}</td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle" class="rotate-left" rowspan="5" ><div class="rotate-left-qf"><span>Match 64</span></div></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle" class="match-top match-winner">{{secondstageMatches[15].teamAName}}</td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle" class="rotate-right" rowspan="5" ><div class="rotate-right-qf"><span>Match 64</span></div></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-bottom match-loser">{{secondstageMatches[10].teamBName}}</td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[3].teamAImage"></span> {{secondstageMatches[3].teamAScore}} - {{secondstageMatches[3].teamBScore}} ({{secondstageMatches[3].teamAPenalty}}-{{secondstageMatches[3].teamBPenalty}}) <span class="flagsp" ng-class="secondstageMatches[3].teamBImage"></span></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[1].teamBName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[3].teamBName}}</td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"><span class="flagsp" ng-class="secondstageMatches[12].teamAImage"></span> {{secondstageMatches[12].teamAScore}} - {{secondstageMatches[12].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[12].teamBImage"></span></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle"><span class="flagsp" ng-class="secondstageMatches[15].teamAImage"></span> {{secondstageMatches[15].teamAScore}} - {{secondstageMatches[15].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[15].teamBImage"></span></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"><span class="flagsp" ng-class="secondstageMatches[13].teamAImage"></span> {{secondstageMatches[13].teamAScore}} - {{secondstageMatches[13].teamBScore}} ({{secondstageMatches[3].teamAPenalty}}-{{secondstageMatches[3].teamBPenalty}}) <span class="flagsp" ng-class="secondstageMatches[13].teamBImage"></span></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-left" rowspan="3" ><div><span>Match 53</span></div></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[4].teamAName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[6].teamAName}}</td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-right" rowspan="3"><div><span>Match 55</span></div></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[4].teamAImage"></span> {{secondstageMatches[4].teamAScore}} - {{secondstageMatches[4].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[4].teamBImage"></span></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="rotate-left" rowspan="5" ><div class="rotate-left-qf"><span>Match 58</span></div></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-top match-loser">{{secondstageMatches[9].teamAName}}</td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle" class="match-bottom match-loser">{{secondstageMatches[15].teamBName}}</td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-top match-winner">{{secondstageMatches[11].teamAName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="rotate-right" rowspan="5" ><div class="rotate-right-qf"><span>Match 60</span></div></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[6].teamAImage"></span> {{secondstageMatches[6].teamAScore}} - {{secondstageMatches[6].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[6].teamBImage"></span></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[4].teamBName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td  ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" class="match-bottom match-winner">{{secondstageMatches[12].teamBName}}</td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''" ng-class="fStyle" class="match-right match-left match-bottom">F I N A L</td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" ng-class="sfStyle" class="match-bottom match-winner">{{secondstageMatches[13].teamBName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[6].teamBName}}</td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"><span class="flagsp" ng-class="secondstageMatches[9].teamAImage"></span> {{secondstageMatches[9].teamAScore}} - {{secondstageMatches[9].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[9].teamBImage"></span></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="fStyle='highlightFinal'" ng-mouseleave="fStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"><span class="flagsp" ng-class="secondstageMatches[11].teamAImage"></span> {{secondstageMatches[11].teamAScore}} - {{secondstageMatches[11].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[11].teamBImage"></span></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''"></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-left" rowspan="3" ><div><span>Match 54</span></div></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[5].teamAName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="f3Style='highlightTD'" ng-mouseleave="f3Style=''" ng-class="f3Style" class="rotate-left" rowspan="3" ><div><span>For 3rd</span></div></td>
+                    <td ng-mouseover="f3Style='highlightTD'" ng-mouseleave="f3Style=''" ng-class="f3Style" class="match-top match-loser">{{secondstageMatches[14].teamAName}}</td>
+                    <td ng-mouseover="f3Style='highlightTD'" ng-mouseleave="f3Style=''" ng-class="f3Style" class="rotate-right" rowspan="3" ><div><span>Match 63</span></div></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-top match-winner">{{secondstageMatches[7].teamAName}}</td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="rotate-right" rowspan="3"><div><span>Match 56</span></div></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[5].teamAImage"></span> {{secondstageMatches[5].teamAScore}} - {{secondstageMatches[5].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[5].teamBImage"></span></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-bottom match-winner">{{secondstageMatches[9].teamBName}}</td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" colspan="2"></td>
+                    <td ng-mouseover="f3Style='highlightTD'" ng-mouseleave="f3Style=''" ng-class="f3Style"><span class="flagsp" ng-class="secondstageMatches[14].teamAImage"></span>  {{secondstageMatches[14].teamAScore}} - {{secondstageMatches[14].teamBScore}}  <span class="flagsp" ng-class="secondstageMatches[14].teamBImage"></span></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''" colspan="2"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''" ng-class="qfStyle" class="match-bottom match-loser">{{secondstageMatches[11].teamBName}}</td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style"><span class="flagsp" ng-class="secondstageMatches[7].teamAImage"></span> {{secondstageMatches[7].teamAScore}} - {{secondstageMatches[7].teamBScore}} <span class="flagsp" ng-class="secondstageMatches[7].teamBImage"></span></td>
+                </tr>
+                <tr>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[5].teamBName}}</td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="f3Style='highlightTD'" ng-mouseleave="f3Style=''" ng-class="f3Style" class="match-bottom match-winner">{{secondstageMatches[14].teamBName}}</td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="sfStyle='highlightTD'" ng-mouseleave="sfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="qfStyle='highlightTD'" ng-mouseleave="qfStyle=''"></td>
+                    <td ng-mouseover="r16Style='highlightTD'" ng-mouseleave="r16Style=''" ng-class="r16Style" class="match-bottom match-loser">{{secondstageMatches[7].teamBName}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

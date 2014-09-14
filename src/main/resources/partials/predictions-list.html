@@ -1,0 +1,96 @@
+<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+<div class="spinner" ng-show="loading"><img class="img-responsive" src="img/ajax-loader.gif" /></div>
+<div ng-show="user.subscription=='FULL' && !loading">
+    <table style="width: 95%">
+        <tr>
+            <td style="width: 45%">
+                Search: <input type="search" class="form-control" style="width: 140px; display: inline" ng-model="query">
+                <button class="btn btn-success btn-save" ng-show="submitAllVisible()" ng-disabled="!submitEnabled" ng-click="submitAll()">Update All</button>
+            </td>
+            <td style="width: 55%">
+                <span ng-show="viewPredictionsAvailable" style="float: right">Completed Matches</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 45%">
+                <div style="height:525px; overflow:auto; background-color: rgba(240, 255, 255, 0.5)">
+                    <table style="width: auto">
+                        <tr  ng-repeat="prediction in predictions | filter:query" title="{{prediction.match.matchDate | date:'mediumDate'}}" style="height: 30px">
+                            <td style="width: 21px">
+                                <span class="flagsp" ng-class="prediction.match.teamAImage" title="{{prediction.match.teamAName}}"></span>
+                            </td>
+                            <td style="white-space: nowrap; width: 140px">
+                                {{prediction.match.teamAName}}
+                            </td>
+                            <td style="width: 45px">
+                                <input class="form-control" type="number" maxlength="2" size="2" style="width: 40px; height: 22px; padding: 1px" ng-model="prediction.teamAPrediction" min="0" max="99" required />
+                            </td>
+                            <td style="white-space: nowrap;">
+                                :
+                            </td>
+                            <td style="width: 45px">
+                                <input class="form-control" type="number" maxlength="2" size="2" style="width: 40px; height: 22px; padding: 1px" ng-model="prediction.teamBPrediction" min="0" max="99" required />
+                            </td>
+                            <td align="right" style="white-space: nowrap; width: 140px">
+                                {{prediction.match.teamBName}}
+                            </td>
+                            <td style="width: 21px">
+                                <span class="flagsp" ng-class="prediction.match.teamBImage" title="{{prediction.match.teamBName}}"></span>
+                            </td>
+                            <td style="padding-left: 10px">
+                                <button class="btn btn-success btn-save" ng-show="submitVisible(prediction)" ng-disabled="!submitEnabled" ng-click="submit(prediction)">Update</button>
+                                <span class="left" style="text-wrap: none" ng-hide="submitVisible(prediction)">{{prediction.match.matchDate | date:'dd/MMM HH:mm'}}</span>
+                                <!--{{date | date:'medium'}}
+                                and
+                                {{prediction.match.matchDate | date:'mediumDate'}}-->
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td style="width: 55%">
+                <div ng-show="viewPredictionsAvailable" style="float:right; vertical-align:top; height:525px; display: inline; overflow:auto">
+                    <table align="right" style="background-color: rgba(240, 255, 255, 0.5)">
+                        <tr>
+                            <th>Date</th>
+                            <th style="text-align: center" colspan="5">
+                                Final Score
+                            </th>
+                            <th colspan="1" style="text-align: center">Prediction</th>
+                            <th colspan="1" style="text-align: right" align="right">Points</th>
+                        </tr>
+                        <tr  ng-repeat="vp in viewPredictions | filter:query" title="{{vp.match.matchDate | date:'mediumDate'}}" style="height: 30px">
+                            <td style="white-space: nowrap; width: 120px">
+                                {{vp.match.matchDate | date:'dd-MMM'}}
+                            </td>
+                            <td style="width: 21px">
+                                <span class="flagsp" ng-class="vp.match.teamAImage" title="{{vp.match.teamAName}}"></span>
+                            </td>
+                            <td style="white-space: nowrap">
+                                {{vp.match.teamAName}}
+                            </td>
+                            <td align="center" style="white-space: nowrap; width: 50px">
+                                <span ng-show="vp.match.finalized"><b>{{vp.match.teamAScore}}:{{vp.match.teamBScore}}</b></span>
+                            </td>
+                            <td align="right" style="white-space: nowrap">
+                                {{vp.match.teamBName}}
+                            </td>
+                            <td style="width: 21px">
+                                <span class="flagsp" ng-class="vp.match.teamBImage" title="{{vp.match.teamBName}}"></span>
+                            </td>
+                            <td align="center" style="white-space: nowrap; width: 20px">
+                                {{vp.teamAPrediction}}:{{vp.teamBPrediction}}
+                            </td>
+                            <td style="width: 50px; text-align: right">
+                                <span ng-show="vp.match.finalized">{{vp.points}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="container-fluid" ng-show="user.subscription=='BASIC'">
+    You have not subscribed for match level predictions. <br><br>If you wish to participate, Please contact <a href="mailto:varesh.tapadia@gmail.com">Varesh Tapadia</a>.
+</div>

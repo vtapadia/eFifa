@@ -1,0 +1,500 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+  background-image: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  font-weight: bold ;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+a {
+    color: seagreen;
+}
+
+.btn-save {
+    padding: 1px;
+}
+.panel {
+    background-color: rgba(240, 255, 255, 0.5)
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #005000;
+    font-weight: bold ;
+    background-color: darkseagreen;
+}
+
+.nav > li > a:hover {
+    color: #005000;
+    background-color: darkseagreen;
+}
+
+.flagsp {
+    display: inline-block;
+    vertical-align: middle;
+    width: 19px;
+    height: 13px;
+    overflow: hidden;
+    background: transparent url(../img/flagsp.png) no-repeat scroll;
+    border: 1px solid #CCC;
+}
+
+.flagsp_sud {background-position:-0px -208px;}
+.flagsp_afg {background-position:-19px -0px;}
+.flagsp_aia {background-position:-38px -0px;}
+.flagsp_alb {background-position:-57px -0px;}
+.flagsp_alg {background-position:-76px -0px;}
+.flagsp_and {background-position:-95px -0px;}
+.flagsp_ang {background-position:-114px -0px;}
+.flagsp_arg {background-position:-133px -0px;}
+.flagsp_arm {background-position:-152px -0px;}
+.flagsp_aru {background-position:-171px -0px;}
+.flagsp_asa {background-position:-0px -13px;}
+.flagsp_atg {background-position:-19px -13px;}
+.flagsp_aus {background-position:-38px -13px;}
+.flagsp_aut {background-position:-57px -13px;}
+.flagsp_aze {background-position:-76px -13px;}
+.flagsp_bah {background-position:-95px -13px;}
+.flagsp_ban {background-position:-114px -13px;}
+.flagsp_bdi {background-position:-133px -13px;}
+.flagsp_bel {background-position:-152px -13px;}
+.flagsp_ben {background-position:-171px -13px;}
+.flagsp_ber {background-position:-0px -26px;}
+.flagsp_bfa {background-position:-19px -26px;}
+.flagsp_bhr {background-position:-38px -26px;}
+.flagsp_bhu {background-position:-57px -26px;}
+.flagsp_bih {background-position:-76px -26px;}
+.flagsp_blr {background-position:-95px -26px;}
+.flagsp_blz {background-position:-114px -26px;}
+.flagsp_bol {background-position:-133px -26px;}
+.flagsp_bot {background-position:-152px -26px;}
+.flagsp_bra {background-position:-171px -26px;}
+.flagsp_brb {background-position:-0px -39px;}
+.flagsp_bru {background-position:-19px -39px;}
+.flagsp_bul {background-position:-38px -39px;}
+.flagsp_cam {background-position:-57px -39px;}
+.flagsp_can {background-position:-76px -39px;}
+.flagsp_cay {background-position:-95px -39px;}
+.flagsp_cgo {background-position:-114px -39px;}
+.flagsp_cha {background-position:-133px -39px;}
+.flagsp_chi {background-position:-152px -39px;}
+.flagsp_chn {background-position:-171px -39px;}
+.flagsp_civ {background-position:-0px -52px;}
+.flagsp_cmr {background-position:-19px -52px;}
+.flagsp_cod {background-position:-38px -52px;}
+.flagsp_cok {background-position:-57px -52px;}
+.flagsp_col {background-position:-76px -52px;}
+.flagsp_com {background-position:-95px -52px;}
+.flagsp_cpv {background-position:-114px -52px;}
+.flagsp_crc {background-position:-133px -52px;}
+.flagsp_cro {background-position:-152px -52px;}
+.flagsp_cta {background-position:-171px -52px;}
+.flagsp_cub {background-position:-0px -65px;}
+.flagsp_cuw {background-position:-19px -65px;}
+.flagsp_cyp {background-position:-38px -65px;}
+.flagsp_cze {background-position:-57px -65px;}
+.flagsp_den {background-position:-76px -65px;}
+.flagsp_dji {background-position:-95px -65px;}
+.flagsp_dma {background-position:-114px -65px;}
+.flagsp_dom {background-position:-133px -65px;}
+.flagsp_ecu {background-position:-152px -65px;}
+.flagsp_egy {background-position:-171px -65px;}
+.flagsp_eng {background-position:-0px -78px;}
+.flagsp_eqg {background-position:-19px -78px;}
+.flagsp_eri {background-position:-38px -78px;}
+.flagsp_esp {background-position:-57px -78px;}
+.flagsp_est {background-position:-76px -78px;}
+.flagsp_eth {background-position:-95px -78px;}
+.flagsp_fij {background-position:-114px -78px;}
+.flagsp_fin {background-position:-133px -78px;}
+.flagsp_fra {background-position:-152px -78px;}
+.flagsp_fro {background-position:-171px -78px;}
+.flagsp_gab {background-position:-0px -91px;}
+.flagsp_gam {background-position:-19px -91px;}
+.flagsp_geo {background-position:-38px -91px;}
+.flagsp_ger {background-position:-57px -91px;}
+.flagsp_gha {background-position:-76px -91px;}
+.flagsp_gnb {background-position:-95px -91px;}
+.flagsp_gre {background-position:-114px -91px;}
+.flagsp_grn {background-position:-133px -91px;}
+.flagsp_gua {background-position:-152px -91px;}
+.flagsp_gui {background-position:-171px -91px;}
+.flagsp_gum {background-position:-0px -104px;}
+.flagsp_guy {background-position:-19px -104px;}
+.flagsp_hai {background-position:-38px -104px;}
+.flagsp_hkg {background-position:-57px -104px;}
+.flagsp_hon {background-position:-76px -104px;}
+.flagsp_hun {background-position:-95px -104px;}
+.flagsp_idn {background-position:-114px -104px;}
+.flagsp_ind {background-position:-133px -104px;}
+.flagsp_irl {background-position:-152px -104px;}
+.flagsp_irn {background-position:-171px -104px;}
+.flagsp_irq {background-position:-0px -117px;}
+.flagsp_isl {background-position:-19px -117px;}
+.flagsp_isr {background-position:-38px -117px;}
+.flagsp_ita {background-position:-57px -117px;}
+.flagsp_jam {background-position:-76px -117px;}
+.flagsp_jor {background-position:-95px -117px;}
+.flagsp_jpn {background-position:-114px -117px;}
+.flagsp_kaz {background-position:-133px -117px;}
+.flagsp_ken {background-position:-152px -117px;}
+.flagsp_kgz {background-position:-171px -117px;}
+.flagsp_kor {background-position:-0px -130px;}
+.flagsp_ksa {background-position:-19px -130px;}
+.flagsp_kuw {background-position:-38px -130px;}
+.flagsp_lao {background-position:-57px -130px;}
+.flagsp_lbr {background-position:-76px -130px;}
+.flagsp_lby {background-position:-95px -130px;}
+.flagsp_lca {background-position:-114px -130px;}
+.flagsp_les {background-position:-133px -130px;}
+.flagsp_lib {background-position:-152px -130px;}
+.flagsp_lie {background-position:-171px -130px;}
+.flagsp_ltu {background-position:-0px -143px;}
+.flagsp_lux {background-position:-19px -143px;}
+.flagsp_lva {background-position:-38px -143px;}
+.flagsp_mac {background-position:-57px -143px;}
+.flagsp_mad {background-position:-76px -143px;}
+.flagsp_mar {background-position:-95px -143px;}
+.flagsp_mas {background-position:-114px -143px;}
+.flagsp_mda {background-position:-133px -143px;}
+.flagsp_mdv {background-position:-152px -143px;}
+.flagsp_mex {background-position:-171px -143px;}
+.flagsp_mkd {background-position:-0px -156px;}
+.flagsp_mli {background-position:-19px -156px;}
+.flagsp_mlt {background-position:-38px -156px;}
+.flagsp_mne {background-position:-57px -156px;}
+.flagsp_mng {background-position:-76px -156px;}
+.flagsp_moz {background-position:-95px -156px;}
+.flagsp_mri {background-position:-114px -156px;}
+.flagsp_msr {background-position:-133px -156px;}
+.flagsp_mtn {background-position:-152px -156px;}
+.flagsp_mwi {background-position:-171px -156px;}
+.flagsp_mya {background-position:-0px -169px;}
+.flagsp_nam {background-position:-19px -169px;}
+.flagsp_nca {background-position:-38px -169px;}
+.flagsp_ncl {background-position:-57px -169px;}
+.flagsp_ned {background-position:-76px -169px;}
+.flagsp_nep {background-position:-95px -169px;}
+.flagsp_nga {background-position:-114px -169px;}
+.flagsp_nig {background-position:-133px -169px;}
+.flagsp_nir {background-position:-152px -169px;}
+.flagsp_nor {background-position:-171px -169px;}
+.flagsp_nzl {background-position:-0px -182px;}
+.flagsp_oma {background-position:-19px -182px;}
+.flagsp_pak {background-position:-38px -182px;}
+.flagsp_pan {background-position:-57px -182px;}
+.flagsp_par {background-position:-76px -182px;}
+.flagsp_per {background-position:-95px -182px;}
+.flagsp_phi {background-position:-114px -182px;}
+.flagsp_ple {background-position:-133px -182px;}
+.flagsp_png {background-position:-152px -182px;}
+.flagsp_pol {background-position:-171px -182px;}
+.flagsp_por {background-position:-0px -195px;}
+.flagsp_prk {background-position:-19px -195px;}
+.flagsp_pur {background-position:-38px -195px;}
+.flagsp_qat {background-position:-57px -195px;}
+.flagsp_rou {background-position:-76px -195px;}
+.flagsp_rsa {background-position:-95px -195px;}
+.flagsp_rus {background-position:-114px -195px;}
+.flagsp_rwa {background-position:-133px -195px;}
+.flagsp_sam {background-position:-152px -195px;}
+.flagsp_sco {background-position:-171px -195px;}
+.flagsp_sdn {background-position:-0px -208px;}
+.flagsp_sen {background-position:-19px -208px;}
+.flagsp_sey {background-position:-38px -208px;}
+.flagsp_sin {background-position:-57px -208px;}
+.flagsp_skn {background-position:-76px -208px;}
+.flagsp_sle {background-position:-95px -208px;}
+.flagsp_slv {background-position:-114px -208px;}
+.flagsp_smr {background-position:-133px -208px;}
+.flagsp_sol {background-position:-152px -208px;}
+.flagsp_som {background-position:-171px -208px;}
+.flagsp_srb {background-position:-0px -221px;}
+.flagsp_sri {background-position:-19px -221px;}
+.flagsp_ssd {background-position:-38px -221px;}
+.flagsp_stp {background-position:-57px -221px;}
+.flagsp_sui {background-position:-76px -221px;}
+.flagsp_sur {background-position:-95px -221px;}
+.flagsp_svk {background-position:-114px -221px;}
+.flagsp_svn {background-position:-133px -221px;}
+.flagsp_swe {background-position:-152px -221px;}
+.flagsp_swz {background-position:-171px -221px;}
+.flagsp_syr {background-position:-0px -234px;}
+.flagsp_tah {background-position:-19px -234px;}
+.flagsp_tan {background-position:-38px -234px;}
+.flagsp_tca {background-position:-57px -234px;}
+.flagsp_tga {background-position:-76px -234px;}
+.flagsp_tha {background-position:-95px -234px;}
+.flagsp_tjk {background-position:-114px -234px;}
+.flagsp_tkm {background-position:-133px -234px;}
+.flagsp_tls {background-position:-152px -234px;}
+.flagsp_tog {background-position:-171px -234px;}
+.flagsp_tpe {background-position:-0px -247px;}
+.flagsp_tri {background-position:-19px -247px;}
+.flagsp_tun {background-position:-38px -247px;}
+.flagsp_tur {background-position:-57px -247px;}
+.flagsp_uae {background-position:-76px -247px;}
+.flagsp_uga {background-position:-95px -247px;}
+.flagsp_ukr {background-position:-114px -247px;}
+.flagsp_uru {background-position:-133px -247px;}
+.flagsp_usa {background-position:-152px -247px;}
+.flagsp_uzb {background-position:-171px -247px;}
+.flagsp_van {background-position:-0px -260px;}
+.flagsp_ven {background-position:-19px -260px;}
+.flagsp_vgb {background-position:-38px -260px;}
+.flagsp_vie {background-position:-57px -260px;}
+.flagsp_vin {background-position:-76px -260px;}
+.flagsp_vir {background-position:-95px -260px;}
+.flagsp_wal {background-position:-114px -260px;}
+.flagsp_yem {background-position:-133px -260px;}
+.flagsp_zam {background-position:-152px -260px;}
+.flagsp_zim {background-position:-171px -260px;}
+
+
+.phone-images {
+  width: 450px;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+
+.phones {
+  list-style: none;
+}
+
+.thumb {
+  float: left;
+  margin: -1em 1em 1.5em 0em;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+.phones li {
+  clear: both;
+  height: 100px;
+  padding-top: 15px;
+}
+
+/** Detail View **/
+img.phone {
+  float: left;
+  margin-right: 3em;
+  margin-bottom: 2em;
+  background-color: white;
+  padding: 2em;
+  height: 400px;
+  width: 400px;
+}
+
+ul.phone-thumbs {
+  margin: 0;
+  list-style: none;
+}
+
+ul.phone-thumbs li {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 1em;
+  background-color: white;
+}
+
+ul.phone-thumbs img {
+  height: 100px;
+  width: 100px;
+  padding: 1em;
+}
+
+ul.phone-thumbs img:hover {
+  cursor: pointer;
+}
+
+
+ul.specs {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.specs > li{
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+ul.specs > li > span{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+ul.specs dt {
+  font-weight: bold;
+}
+
+h1 {
+  border-bottom: 1px solid gray;
+}
+
+.chart {
+    width: 50%;
+    height: 300px;
+    float: left;
+}
+
+.chart-higher {
+    width: 50%;
+    height: 500px;
+    float: left;
+}
+
+.charts {
+    width: 100%;
+    height: 100%;
+}
+
+.vertical-right {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    /*color: #000;
+    font-size: 22px;
+    height: 200px;
+    width: 20px;*/
+    float: left;
+    vertical-align:top;
+}
+
+.vertical-left {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    /*color: #000;
+    font-size: 22px;
+    height: 23px;
+    width: 23px;
+    float: left;
+    vertical-align:bottom;*/
+}
+
+td.team-top-left {
+    white-space: nowrap;
+    border-top: 2px solid #005000 !important;
+    border-right: 2px solid #005000;
+    border-top-right-radius: 50px;
+}
+
+td.match-left {
+    white-space: nowrap;
+    border-left: 2px solid darkseagreen;
+}
+
+td.match-right {
+    white-space: nowrap;
+    border-right: 2px solid darkseagreen;
+}
+
+td.match-top {
+    white-space: nowrap;
+    border-top: 2px solid darkseagreen !important;
+}
+
+td.match-bottom {
+    white-space: nowrap;
+    border-bottom: 2px solid darkseagreen !important;
+}
+
+td.rotate-left {
+    padding: 0px !important;
+    white-space: nowrap;
+    vertical-align: bottom !important;
+    border-right: 2px solid darkseagreen !important;
+    border-top: 2px solid darkseagreen !important;
+    border-bottom: 2px solid darkseagreen !important;
+}
+
+td.rotate-right {
+    padding: 0px !important;
+    white-space: nowrap;
+    vertical-align: top !important;
+    border-left: 2px solid darkseagreen !important;
+    border-top: 2px solid darkseagreen !important;
+    border-bottom: 2px solid darkseagreen !important;
+}
+
+td.rotate-right > div {
+    -webkit-transform:
+        translate(0px, 25px)
+        rotate(90deg);
+    width: 20px;
+}
+
+div.rotate-right-qf {
+    -webkit-transform:
+        translate(0px, 65px)
+        rotate(90deg) !important;
+}
+
+div.rotate-right-sf {
+    -webkit-transform:
+        translate(0px, 95px)
+        rotate(90deg) !important;
+}
+
+td.rotate-left > div {
+    -webkit-transform:
+        translate(0px, -25px)
+        rotate(-90deg);
+    width: 20px;
+}
+
+div.rotate-left-qf {
+    -webkit-transform:
+        translate(0px, -65px)
+        rotate(-90deg) !important;
+}
+
+div.rotate-left-sf {
+    -webkit-transform:
+        translate(0px, -100px)
+        rotate(-90deg) !important;
+}
+
+td.rotate-left > div > span,
+td.rotate-right > div > span {
+    vertical-align: top;
+    font-weight: bold;
+}
+
+td.match-winner {
+    font-weight: bold;
+    color: green;
+    text-shadow: #005000;
+}
+
+td.match-loser {
+    font-weight: normal;
+    color: chocolate;
+}
+
+.highlightTD {
+    background-color: darkseagreen;
+}
+
+.highlightFinal {
+    background-color: seagreen;
+}
+
+.table-team-group > tbody > tr > td {
+    border-top-width: 0px;
+}

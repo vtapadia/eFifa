@@ -1,0 +1,44 @@
+<table style="width: 95%">
+    <tr>
+        <td>
+            <select class="form-control dropdown" style="width: 300px" ng-model="mySelectedOption" ng-options="x.name for x in myOptions"></select>
+        </td>
+    </tr>
+    <tr ng-show="mySelectedOption.name=='Future Matches Predictions'">
+        <td>
+            <div class="charts" ng-repeat="d in data">
+                <div
+                        data-ac-chart="'pie'"
+                        data-ac-data="d"
+                        data-ac-config="config[$index]"
+                        class="chart">
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr ng-show="mySelectedOption.name=='Global Predictions'">
+        <td style="float: right">
+            Total Goals so far : <strong>{{global.currentGoalCount}}</strong>
+        </td>
+    </tr>
+    <tr ng-show="mySelectedOption.name=='Global Predictions'">
+        <td>
+            <div class="charts" ng-show="globalReady">
+                <div
+                        data-ac-chart="'bar'"
+                        data-ac-data="globalTeamData"
+                        data-ac-config="globalTeamConfig"
+                        class="chart-higher">
+                </div>
+            </div>
+            <div class="charts" ng-show="globalReady">
+                <div
+                        data-ac-chart="'bar'"
+                        data-ac-data="globalGoalsData"
+                        data-ac-config="globalGoalsConfig"
+                        class="chart-higher">
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

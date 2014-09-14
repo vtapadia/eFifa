@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    Total Users registered: <span ng-bind="userCount"></span> * 10 = {{userCount * 10}} (Total Price Money)<br><br>
+    Search: <input type="search" class="form-control" style="width: 140px; display: inline" ng-model="query"><br>
+    <div style="height:525px; width: 380px; overflow:auto; background-color: rgba(240, 255, 255, 0.5); float: left">
+        <table style="width: auto">
+            <thead>
+                <tr>
+                    <th>
+                        Rank
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Points
+                    </th>
+                    <th>
+                        Prize
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="leader in leaders | filter:query">
+                    <td style="width: 50px">
+                        {{leader.rank}}
+                    </td>
+                    <td style="text-wrap: none; white-space: nowrap">
+                        <a href="mailto:{{leader.email}}">{{leader.name}}</a>
+                    </td>
+                    <td style="width: 70px">
+                        {{leader.points}}
+                    </td>
+                    <td style="width: 100px">
+                        <span ng-show="leader.rank<4">{{getPrizeAmount(leader)}}</span>
+                        <span ng-show="leader.rank>=4"><img src="img/tongue.png" /></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-show="hasProgress" style="height:565px; width: 830px; overflow:auto; background-color: rgba(240, 255, 255, 0.5); float: left">
+        <div
+                data-ac-chart="'line'"
+                data-ac-data="progressData"
+                data-ac-config="config"
+                style="height:525px; width: 830px; float: left">
+        </div>
+    </div>
+</div>
