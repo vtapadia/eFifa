@@ -55,8 +55,10 @@ create table ef_match(
 id bigint  primary key ,
 team_a bigint,
 team_a_score int,
+team_a_penalty int,
 team_b bigint,
 team_b_score int,
+team_b_penalty int,
 match_date timestamp,
 match_type varchar(50)
 );
