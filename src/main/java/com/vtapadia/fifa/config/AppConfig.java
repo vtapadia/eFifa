@@ -14,7 +14,7 @@ import java.io.File;
 public class AppConfig {
     Logger log = LoggerFactory.getLogger(AppConfig.class);
 
-    @Value("${eFifa.enviroment}")
+    @Value("${eFifa.enviroment:local}")
     String environment;
 
     @Value("${eFifa.port:8014}")
@@ -36,9 +36,10 @@ public class AppConfig {
             String documentRoot;
             switch(environment) {
                 case "prod":
+                case "test":
                     documentRoot = userDirectory + File.separator + "eFifaApp.jar";
                     break;
-                case "dev":
+                case "local":
                     documentRoot = userDirectory + File.separator + "src//main//resources";
                     break;
                 default:

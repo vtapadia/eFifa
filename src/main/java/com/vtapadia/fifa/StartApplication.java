@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
  * MAIN CLASS - Starts the application
  *
  * Following properties are required to be set
- *  fifa.environment : dev/prod
- *  fifa.db.url : URL of the database
- *  fifa.db.username : self explanatory
- *  fifa.db.password : self explanatory
+ *  eFifa.environment : (default:local) local/prod/test
+ *  eFifa.db.url : URL of the database
+ *  eFifa.db.username : self explanatory
+ *  eFifa.db.password : self explanatory
  */
 @Configuration
 @EnableAutoConfiguration
