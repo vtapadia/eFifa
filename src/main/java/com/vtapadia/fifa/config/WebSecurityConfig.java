@@ -1,5 +1,7 @@
 package com.vtapadia.fifa.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +16,8 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebMvcSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    Logger log = LoggerFactory.getLogger(WebSecurityConfig.class);
 
     @Autowired
     DataSource dataSource;
@@ -44,6 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
         ;
+
+        log.info("Encoded password String for admin [" + passwordEncoder().encode("admin") + "]");
     }
     @Bean
     public StandardPasswordEncoder passwordEncoder() {
