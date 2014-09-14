@@ -53,6 +53,7 @@ goals_against int
 
 create table ef_match(
 id bigint  primary key ,
+team_winner bigint,
 team_a bigint,
 team_a_score int,
 team_a_penalty int,
