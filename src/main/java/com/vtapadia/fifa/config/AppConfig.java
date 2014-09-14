@@ -27,7 +27,8 @@ public class AppConfig {
     public EmbeddedServletContainerFactory servletContainer() {
         JettyEmbeddedServletContainerFactory jetty = new JettyEmbeddedServletContainerFactory();
         jetty.setContextPath("/eFifa");
-        log.debug("Environment setup for : " + environment);
+        log.info("Environment setup for : " + environment);
+        log.info("userDirectory set to " + userDirectory);
         try {
             String documentRoot;
             switch(environment) {
@@ -41,7 +42,7 @@ public class AppConfig {
                 default:
                     throw new RuntimeException("environment not set or incorrect value");
             }
-            log.debug("Setting documentRoot to {}", documentRoot);
+            log.info("Setting documentRoot to {}", documentRoot);
             jetty.setDocumentRoot(new File(documentRoot));
         } catch (Exception e) {
             e.printStackTrace();
