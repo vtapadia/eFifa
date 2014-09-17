@@ -1,5 +1,6 @@
 package com.vtapadia.fifa.config;
 
+import com.vtapadia.fifa.domain.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         super.configure(http);
         http
                 .authorizeRequests()
-                //.antMatchers("/index.html", "/home", "/main/**", "/**/*.js", "/**/*.css").permitAll()
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/admin/**").hasAuthority(Roles.DefinedRole.ADMIN.name())
+                .antMatchers("/league/**").hasAuthority(Roles.DefinedRole.LEAGUE.name())
                 .anyRequest().authenticated();
         http
                 .formLogin()

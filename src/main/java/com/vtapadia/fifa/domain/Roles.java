@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class Roles implements Serializable {
     public enum DefinedRole {
         USER,
+        LEAGUE,
         ADMIN;
     }
 
