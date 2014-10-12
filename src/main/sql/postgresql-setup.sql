@@ -88,7 +88,7 @@ create table ef_team (
 );
 
 insert into ef_team (id,points,name,image,status,team_group,goals_for,goals_against) values (1,0,'Atletico De Kolkata','kol','ACTIVE','League',0,0);
-insert into ef_team (id,points,name,image,status,team_group,goals_for,goals_against) values (2,0,'Club Chennai','che','ACTIVE','League',0,0);
+insert into ef_team (id,points,name,image,status,team_group,goals_for,goals_against) values (2,0,'Chennaiyin FC','che','ACTIVE','League',0,0);
 insert into ef_team (id,points,name,image,status,team_group,goals_for,goals_against) values (3,0,'Delhi Dynamos FC','del','ACTIVE','League',0,0);
 insert into ef_team (id,points,name,image,status,team_group,goals_for,goals_against) values (4,0,'FC Goa','goa','ACTIVE','League',0,0);
 insert into ef_team (id,points,name,image,status,team_group,goals_for,goals_against) values (5,0,'FC Pune City','pun','ACTIVE','League',0,0);
@@ -113,12 +113,12 @@ create table ef_match(
 
 insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (2,1,1,7,'12-oct-2014 19:00','League');
 insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (3,1,3,5,'13-oct-2014 19:00','League');
-insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (4,1,8,6,'15-oct-2014 19:00','League');
-insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (5,1,4,2,'16-oct-2014 19:00','League');
-insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (6,1,7,5,'17-oct-2014 19:00','League');
+insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (4,1,8,6,'14-oct-2014 19:00','League');
+insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (5,1,4,2,'15-oct-2014 19:00','League');
+insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (6,1,7,5,'16-oct-2014 19:00','League');
 insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (7,1,1,3,'18-oct-2014 19:00','League');
 insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (8,1,2,6,'19-oct-2014 19:00','League');
-insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (9,1,8,4,'20-oct-2014 19:00','League');
+insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (9,1,8,4,'19-oct-2014 19:00','League');
 insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (10,1,5,6,'22-oct-2014 19:00','League');
 insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (11,1,4,1,'23-oct-2014 19:00','League');
 insert into ef_match (id,tournament,team_a,team_b,match_date,match_type) values (12,1,7,8,'24-oct-2014 19:00','League');

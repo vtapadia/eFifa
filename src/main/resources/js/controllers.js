@@ -379,7 +379,7 @@ efifaAppCtrls.controller('efifaTeamsCtrl', function($scope, $http, UserService, 
     $scope.myOptions = [{name:'League Stage'}];
     $scope.mySelectedOption = $scope.myOptions[0];
 
-    $http.get("main/teams").then(function(response) {
+    $http.get("main/teams?time=" + (new Date()).getTime()).then(function(response) {
         $scope.teams = response.data;
     });
     $http.get("match/secondstage?time=" + (new Date()).getTime()).success(function(data) {
