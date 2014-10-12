@@ -39,8 +39,17 @@ efifaAppCtrls.controller('MainCtrl',function($scope, $location, $http) {
             });
         }
     })
-    $scope.activeTab=3;
-    $location.path('/teams');
+    $http.get("main/admin").success(function(data) {
+        $scope.admin = data;
+        if ($scope.admin.status) {
+            $scope.tabs.splice(5,0,{
+                'name': 'League Maintenance',
+                'url': '/league/home'
+            });
+        }
+    })
+    $scope.activeTab=1;
+    $location.path('/user/home');
 
     $scope.setActive = function(index) {
         $scope.activeTab=index;
@@ -103,7 +112,7 @@ efifaAppCtrls.controller('efifaUserCtrl', function($scope, $http, UserService, T
     $scope.newpassword="";
 
     $scope.alerts = [];
-    $scope.alerts.push({type:'success',msg:'The Final stretch, !! BEST OF LUCK !!.'});
+    $scope.alerts.push({type:'success',msg:'Lets play Hero ISL and promote Indian football, !! BEST OF LUCK !!.'});
 
     $http.get("leader/leaders?filterSilent=true").success(function(data) {
         $scope.leaders = data;
@@ -236,7 +245,7 @@ efifaAppCtrls.controller('efifaLeaderCtrl', function($scope, $http, $filter, Tou
     $http.get("leader/leaders").success(function(data) {
         $scope.leaders = data;
         $scope.userCount = $scope.leaders.length;
-        $scope.totalAmount = $scope.leaders.length*10;
+        $scope.totalAmount = $scope.leaders.length*100;
         $scope.totalWeight=0;
         for (var i=0;i<$scope.leaders.length;i++) {
             $scope.totalWeight = $scope.totalWeight + getWeight($scope.leaders[i]);
@@ -291,7 +300,39 @@ efifaAppCtrls.controller('efifaLeaderCtrl', function($scope, $http, $filter, Tou
     };
 });
 
-efifaAppCtrls.controller('efifaAdminCtrl', function($scope, $http) {
+efifaAppCtrls.controller('efifaLeagueCtrl', function($scope, $http) {
+    $scope.validateUser = function() {
+        $http.post("league/validateuser", $scope.user).success(function(data) {
+            $scope.validatedUserData = data;
+            //alert(data.message);
+        });
+    }
+
+});
+
+efifaAppCtrls.controller('efifaAdminCtrl', function($scope, $http, TournamentService) {
+    $scope.alerts = [];
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+    };
+    var clearAlert = function() {
+        $scope.alerts = [];
+    };
+
+    $scope.league = {};
+
+    $scope.registerLeague = function() {
+        $http.post("league/register", $scope.league).success(function(data) {
+            $scope.registerUserData = data;
+            $scope.alerts.push({type:'success',msg:data.message});
+        });
+    };
+
+    TournamentService.name().then(function(data) {
+        $scope.league.tournamentName = data;
+    });
+
     $scope.subscriptions=['BASIC','FULL'];
     $scope.user = {subscription: 'FULL'};
 
@@ -334,8 +375,9 @@ efifaAppCtrls.controller('efifaAdminCtrl', function($scope, $http) {
 });
 
 efifaAppCtrls.controller('efifaTeamsCtrl', function($scope, $http, UserService, TeamService, TournamentService) {
-    $scope.myOptions = [{name:'Group Stage'}, {name:'Second Stage'}];
-    $scope.mySelectedOption = $scope.myOptions[1];
+    //$scope.myOptions = [{name:'League Stage'}, {name:'Group Stage'}, {name:'Second Stage'}];
+    $scope.myOptions = [{name:'League Stage'}];
+    $scope.mySelectedOption = $scope.myOptions[0];
 
     $http.get("main/teams").then(function(response) {
         $scope.teams = response.data;

@@ -1,14 +1,20 @@
 package com.vtapadia.fifa.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "ef_tournament")
 public class Tournament {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    public long id;
 
-    private String name;
+    public String name;
 
+    @Enumerated(EnumType.STRING)
+    public Status status;
+
+    @Column(name = "start_date")
+    public Date startDate;
 }

@@ -41,8 +41,12 @@ efifaApp.config(['$routeProvider',
                 templateUrl: 'partials/teams-home.html',
                 controller: 'efifaTeamsCtrl'
             }).
+            when('/league', {
+                templateUrl: 'partials/league-home.html',
+                controller: 'efifaLeagueCtrl'
+            }).
             otherwise({
-                redirectTo: '/teams'
+                redirectTo: '/user/home'
             });
     }]);
 

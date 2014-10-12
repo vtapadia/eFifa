@@ -8,7 +8,6 @@ import java.util.Set;
 @Entity
 @Table(name = "ef_user")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -52,7 +51,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "league_id")
     )
-    private Set<League> leagues;
+    public Set<League> leagues;
 
     public long getId() {
         return id;
@@ -100,6 +99,10 @@ public class User {
 
     public void setPoints(long points) {
         this.points = points;
+    }
+
+    public void addPoints(long points) {
+        this.points += points;
     }
 
     public Status getStatus() {

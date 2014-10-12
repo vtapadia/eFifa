@@ -1,5 +1,7 @@
 package com.vtapadia.fifa.resource;
 
+import com.vtapadia.fifa.domain.MatchType;
+
 import java.util.Date;
 
 public class MatchResource extends BasicResponse {
@@ -14,7 +16,7 @@ public class MatchResource extends BasicResponse {
     private Integer teamAPenalty;
     private Integer teamBPenalty;
     private Date matchDate;
-    private String matchType;
+    private MatchType matchType;
     private boolean finalized;
 
     public MatchResource() {
@@ -109,11 +111,11 @@ public class MatchResource extends BasicResponse {
         this.matchDate = matchDate;
     }
 
-    public String getMatchType() {
+    public MatchType getMatchType() {
         return matchType;
     }
 
-    public void setMatchType(String matchType) {
+    public void setMatchType(MatchType matchType) {
         this.matchType = matchType;
     }
 

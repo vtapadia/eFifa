@@ -68,6 +68,11 @@ public class UserDAO extends AbstractDAO {
         }
         return true;
     }
+    public List<User> getAllUsers() {
+        Criteria criteria = getCriteria();
+        criteria.addOrder(Order.desc("name"));
+        return criteria.list();
+    }
 
     public List<User> gettop(int max) {
         Criteria criteria = getCriteria();

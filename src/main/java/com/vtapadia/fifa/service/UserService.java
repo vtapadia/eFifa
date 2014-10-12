@@ -9,10 +9,7 @@ import com.vtapadia.fifa.domain.Prediction;
 import com.vtapadia.fifa.domain.Subscription;
 import com.vtapadia.fifa.domain.Team;
 import com.vtapadia.fifa.domain.User;
-import com.vtapadia.fifa.resource.GlobalPredictionResource;
-import com.vtapadia.fifa.resource.ProgressResource;
-import com.vtapadia.fifa.resource.UserProgressResource;
-import com.vtapadia.fifa.resource.UserResource;
+import com.vtapadia.fifa.resource.*;
 import org.joda.time.DateTimeComparator;
 import org.joda.time.LocalDate;
 import org.slf4j.Logger;
@@ -32,7 +29,9 @@ import static com.vtapadia.fifa.resource.GlobalPredictionResource.*;
 
 @Service
 public class UserService {
+
     Logger log = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
     private UserDAO userDao;
 
@@ -54,11 +53,30 @@ public class UserService {
     @Autowired
     private StandardPasswordEncoder passwordEncoder;
 
-    private boolean testMode = false;
+    private boolean testMode = true;
 
     public UserResource getLoggedInUser() {
         User user = userDao.getLoggedInUser();
         return convert(user,true);
+    }
+
+    public List<UserResource> getAllUsers() {
+        List<User> users = userDao.getAllUsers();
+        List<UserResource> userResources = new ArrayList<>();
+        for (User user:users) {
+            userResources.add(convert(user, false));
+        }
+        return userResources;
+    }
+
+    //TODO
+    public List<UserResource> getAllUsers(LeagueResource leagueResource) {
+        List<User> users = userDao.getAllUsers();
+        List<UserResource> userResources = new ArrayList<>();
+        for (User user:users) {
+            userResources.add(convert(user, false));
+        }
+        return userResources;
     }
 
     public List<UserResource> getLeaders() {
@@ -206,7 +224,7 @@ public class UserService {
         user.setPoints(0l);
         userDao.save(user);
         if (user.getSubscription() == Subscription.FULL) {
-            predictionService.setDefaultPredictionForFutureMatches(user);
+            predictionService.setDefaultPredictions(user);
         }
         return true;
     }
@@ -216,6 +234,14 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(newPassword));
         userDao.save(user);
         return true;
+    }
+
+    public UserResource getUser(String userId) {
+        User user = userDao.getUser(userId);
+        if (user == null) {
+            return null;
+        }
+        return convert(user, false);
     }
 
     public boolean changePassword(String userId, String newPassword) {
@@ -277,7 +303,7 @@ public class UserService {
                 if (!testMode) {
                     user.setGlobalTeamPoints(globalPoints);
                 }
-                log.info("User " + user.getName() + " got " + globalPoints + "team points");
+                log.info("User " + user.getName() + " got " + globalPoints + " team points");
             } else {
                 //log.info("User " + user.getName() + " has not set global teams. 0 points");
             }

@@ -7,15 +7,18 @@ import javax.persistence.*;
 public class League {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    public long id;
 
-    private String name;
+    public String name;
+
+    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @JoinColumn(name = "tournament", nullable = false)
+    public Tournament tournament;
 
     @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinColumn(name = "league_owner", nullable = false)
-    private User leagueOwner;
+    public User leagueOwner;
 
     @Column(name = "base_amount")
-    private int baseAmount;
-
+    public int baseAmount;
 }

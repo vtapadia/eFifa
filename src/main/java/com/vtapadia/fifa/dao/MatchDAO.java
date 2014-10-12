@@ -1,6 +1,7 @@
 package com.vtapadia.fifa.dao;
 
 import com.vtapadia.fifa.domain.Match;
+import com.vtapadia.fifa.domain.MatchType;
 import com.vtapadia.fifa.domain.Prediction;
 import com.vtapadia.fifa.domain.Team;
 import org.hibernate.Criteria;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -72,15 +74,16 @@ public class MatchDAO extends AbstractDAO {
 
     public List<Match> getSecondStageMatches() {
         Criteria criteria = getCriteria();
-        criteria.add(Restrictions.gt("id", 148l))
-                .addOrder(Order.asc("id"));
+        criteria.add(Restrictions.in("matchType", Arrays.asList(
+                MatchType.Final, MatchType.SemiFinal, MatchType.QuarterFinal, MatchType.RoundOf16)))
+            .addOrder(Order.asc("id"));
         return criteria.list();
     }
 
     public void finalizeMatch(Match match) {
         if (match.getTeamAScore() != null && match.getTeamBScore() != null) {
             log.info("persisting match " + match.getTeamA().getName() + "("+match.getTeamAScore()+") - ("+match.getTeamBScore()+")" + match.getTeamB().getName());
-            int multiplier = getMultipler(match.getMatchType());
+            int multiplier = match.getMatchType().getMultiplier();
             int aScore = match.getTeamAScore(), bScore=match.getTeamBScore();
             //Update teams
             if (multiplier == 1) {
@@ -141,22 +144,5 @@ public class MatchDAO extends AbstractDAO {
     @Override
     protected Class getDomainClass() {
         return Match.class;
-    }
-
-    private int getMultipler(String matchType) {
-        int multiplier = 1;
-        switch(matchType) {
-            case "Round of 16":
-                multiplier=2;
-                break;
-            case "Quarter Final":
-                multiplier=3;
-                break;
-            case "Semi Final":
-            case "Final":
-                multiplier=4;
-                break;
-        }
-        return multiplier;
     }
 }

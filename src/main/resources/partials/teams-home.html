@@ -4,6 +4,69 @@
             <select class="form-control dropdown" style="width: 200px" ng-model="mySelectedOption" ng-options="x.name for x in myOptions"></select>
         </td>
     </tr>
+    <tr ng-show="mySelectedOption.name=='League Stage'">
+        <td>
+            <table style="width: 45%; float: left" class="table">
+                <tr>
+                    <th colspan="4" style="align-content: center">League Stages</th>
+                </tr>
+                <tr>
+                    <th>Team</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold; white-space: nowrap">{{teams[0].name}}</td>
+                    <td>{{teams[0].gf}}</td>
+                    <td>{{teams[0].ga}}</td>
+                    <td>{{teams[0].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[1].name}}</td>
+                    <td>{{teams[1].gf}}</td>
+                    <td>{{teams[1].ga}}</td>
+                    <td>{{teams[1].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[2].name}}</td>
+                    <td>{{teams[2].gf}}</td>
+                    <td>{{teams[2].ga}}</td>
+                    <td>{{teams[2].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[3].name}}</td>
+                    <td>{{teams[3].gf}}</td>
+                    <td>{{teams[3].ga}}</td>
+                    <td>{{teams[3].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[4].name}}</td>
+                    <td>{{teams[4].gf}}</td>
+                    <td>{{teams[4].ga}}</td>
+                    <td>{{teams[4].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[5].name}}</td>
+                    <td>{{teams[5].gf}}</td>
+                    <td>{{teams[5].ga}}</td>
+                    <td>{{teams[5].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[6].name}}</td>
+                    <td>{{teams[6].gf}}</td>
+                    <td>{{teams[6].ga}}</td>
+                    <td>{{teams[6].points}}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">{{teams[7].name}}</td>
+                    <td>{{teams[7].gf}}</td>
+                    <td>{{teams[7].ga}}</td>
+                    <td>{{teams[7].points}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
     <tr ng-show="mySelectedOption.name=='Group Stage'">
         <td>
             <table style="width: 25%; float: left" class="table">

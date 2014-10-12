@@ -59,7 +59,7 @@ public class PredictionService {
         return matchStatResources;
     }
 
-    public boolean setDefaultPredictionForFutureMatches(User user) {
+    public boolean setDefaultPredictions(User user) {
         List<Match> matches = matchDAO.getPendingMatches();
         if (matches == null || matches.size() == 0) {
             log.warn("No matches found. Probably too late");
@@ -67,6 +67,23 @@ public class PredictionService {
         }
         for (Match match : matches) {
             predictionDAO.update(user, match, 0, 0);
+        }
+        matches = matchDAO.getAllFinalizedMatches();
+        for (Match match : matches) {
+            Prediction prediction = predictionDAO.update(user, match, 0, 0);
+            if (match.getTeamAScore() == match.getTeamBScore()) {
+                //Some points are deserved here
+                if (match.getTeamAScore() == 0) {
+                    //Lucky hero
+                    prediction.setPoints(30);
+                    user.addPoints(30);
+                } else {
+                    prediction.setPoints(20);
+                    user.addPoints(20);
+                }
+                predictionDAO.save(prediction);
+                userDAO.save(user);
+            }
         }
         return true;
     }

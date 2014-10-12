@@ -1,14 +1,6 @@
 package com.vtapadia.fifa.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -44,8 +36,10 @@ public class Match {
     private Integer teamBPenalty;
     @Column(name = "match_date")
     private Date matchDate;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "match_type")
-    private String matchType;
+    private MatchType matchType;
 
     public long getId() {
         return id;
@@ -119,11 +113,11 @@ public class Match {
         this.matchDate = matchDate;
     }
 
-    public String getMatchType() {
+    public MatchType getMatchType() {
         return matchType;
     }
 
-    public void setMatchType(String matchType) {
+    public void setMatchType(MatchType matchType) {
         this.matchType = matchType;
     }
 }

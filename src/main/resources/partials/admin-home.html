@@ -4,6 +4,30 @@
             <td style="width: 50%">
                 <table>
                     <caption>
+                        Register New League
+                    </caption>
+                    <tr>
+                        <td>Tournament</td>
+                        <td>
+                            <select ng-model="league.tournamentName" ng-options="subscription for subscription in subscriptions" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" ng-model="league.name"/></td>
+                    </tr>
+                    <tr>
+                        <td>Base Amount</td>
+                        <td><input type="text" ng-model="league.amount"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button class="btn btn-default" ng-click="registerLeague()">Register League</button>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <caption>
                         Register New User
                     </caption>
                     <tr>

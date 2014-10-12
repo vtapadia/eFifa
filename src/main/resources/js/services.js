@@ -38,7 +38,7 @@ efifaAppServices.factory("TeamService", ['$http','$q',
 
 efifaAppServices.factory("TournamentService", ['$http','$q',
     function($http, $q) {
-        var promise, endedPromise;
+        var promise, endedPromise, namePromise;
         var myService = {
             started: function() {
                 if ( !promise ) {
@@ -47,6 +47,14 @@ efifaAppServices.factory("TournamentService", ['$http','$q',
                     });
                 }
                 return promise;
+            },
+            name: function() {
+                if ( !namePromise ) {
+                    namePromise = $http.get("tournament/name").then(function(response) {
+                        return response.data;
+                    });
+                }
+                return namePromise;
             },
             ended: function(fromCache) {
                 if ( !endedPromise || (fromCache != undefined && !fromCache)) {

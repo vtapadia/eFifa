@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -100,7 +101,7 @@ public class PredictionDAO extends AbstractDAO {
         return true;
     }
 
-    public boolean update(User user, Match match, int teamAScore, int teamBScore) {
+    public Prediction update(User user, Match match, int teamAScore, int teamBScore) {
         Criteria criteria = getCriteria();
         criteria.add(Restrictions.eq("user", user));
         criteria.add(Restrictions.eq("match", match));
@@ -120,7 +121,7 @@ public class PredictionDAO extends AbstractDAO {
             prediction.setTeamBScore(teamBScore);
         }
         entityManager.persist(prediction);
-        return true;
+        return prediction;
     }
 
     public void save(Prediction prediction) {

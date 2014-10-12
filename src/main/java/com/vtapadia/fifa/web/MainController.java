@@ -84,4 +84,19 @@ public class MainController {
         }
         return new BasicResponse(false,"No, user is not Admin.");
     }
+
+    @RequestMapping(value="/leagueowner")
+    @ResponseBody
+    public BasicResponse isLeagueOwner() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        log.info(authentication.getName() + " " + authentication.getAuthorities());
+        if (authentication != null && authentication.isAuthenticated() && !StringUtils.isEmpty(authentication.getName())) {
+            for (GrantedAuthority authority:authentication.getAuthorities()) {
+                if (authority.getAuthority().equals("LEAGUE")) {
+                    return new BasicResponse(true,"User is a League Owner");
+                }
+            }
+        }
+        return new BasicResponse(false,"No, user is not a League Owner.");
+    }
 }
