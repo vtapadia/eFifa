@@ -39,12 +39,12 @@ efifaAppCtrls.controller('MainCtrl',function($scope, $location, $http) {
             });
         }
     })
-    $http.get("main/admin").success(function(data) {
+    $http.get("main/leagueowner").success(function(data) {
         $scope.admin = data;
         if ($scope.admin.status) {
             $scope.tabs.splice(5,0,{
                 'name': 'League Maintenance',
-                'url': '/league/home'
+                'url': '/league'
             });
         }
     })
