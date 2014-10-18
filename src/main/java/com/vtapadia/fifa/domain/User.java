@@ -176,4 +176,12 @@ public class User {
     public void setGlobalGoalPoints(long globalGoalPoints) {
         this.globalGoalPoints = globalGoalPoints;
     }
+
+    public Set<League> getLeagues() {
+        return leagues;
+    }
+
+    public void setLeagues(Set<League> leagues) {
+        this.leagues = leagues;
+    }
 }

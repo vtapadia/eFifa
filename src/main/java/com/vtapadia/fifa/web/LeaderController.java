@@ -3,6 +3,8 @@ package com.vtapadia.fifa.web;
 import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
 import com.vtapadia.fifa.dao.UserDAO;
+import com.vtapadia.fifa.domain.League;
+import com.vtapadia.fifa.domain.User;
 import com.vtapadia.fifa.resource.ProgressResource;
 import com.vtapadia.fifa.resource.UserResource;
 import com.vtapadia.fifa.service.MatchService;
@@ -37,9 +39,16 @@ public class LeaderController {
 
     @RequestMapping(value="/leaders")
     @ResponseBody
-    public List<UserResource> getTopUsers(@RequestParam(value = "filterSilent", required = false, defaultValue = "false") boolean filterSilent) {
-        log.info(userDAO.getLoggedInUser().getUser_id() + " viewed leader board");
-        List<UserResource> leaders = userService.getLeaders();
+    public List<UserResource> getTopUsers(
+            @RequestParam(value = "filterSilent", required = false, defaultValue = "false") boolean filterSilent,
+            @RequestParam(value = "leagueId", required = false) Long leagueId) {
+        User user = userDAO.getLoggedInUser();
+        if (leagueId == null) {
+            for (League league : user.getLeagues()) {
+                leagueId = league.id;
+            }
+        }
+        List<UserResource> leaders = userService.getLeaders(leagueId);
         if (filterSilent) {
             List<UserResource> filteredLeaders =
                     FluentIterable.from(leaders).filter(new Predicate<UserResource>() {
@@ -49,6 +58,8 @@ public class LeaderController {
                         }
                     }).toList();
             return filteredLeaders;
+        } else {
+            log.info(userDAO.getLoggedInUser().getUser_id() + " viewed leader board");
         }
         return leaders;
     }

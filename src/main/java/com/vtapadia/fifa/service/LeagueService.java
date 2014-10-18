@@ -6,7 +6,6 @@ import com.vtapadia.fifa.dao.UserDAO;
 import com.vtapadia.fifa.domain.League;
 import com.vtapadia.fifa.domain.User;
 import com.vtapadia.fifa.resource.LeagueResource;
-import com.vtapadia.fifa.resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +39,7 @@ public class LeagueService {
 
     public List<LeagueResource> getLeagueForLoggedUser() {
         User user = userDAO.getLoggedInUser();
-        List<League> leagues = leagueDAO.getLeaguesForUser(user);
+        List<League> leagues = leagueDAO.getLeaguesForOwnerUser(user);
         List<LeagueResource> leagueResourceList = new ArrayList<>();
         for (League league : leagues) {
             leagueResourceList.add(convert(league,false));

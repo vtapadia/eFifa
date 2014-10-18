@@ -1,9 +1,12 @@
 package com.vtapadia.fifa.service;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
 import com.vtapadia.fifa.dao.MatchDAO;
 import com.vtapadia.fifa.dao.PredictionDAO;
 import com.vtapadia.fifa.dao.TeamDAO;
 import com.vtapadia.fifa.dao.UserDAO;
+import com.vtapadia.fifa.domain.League;
 import com.vtapadia.fifa.domain.Match;
 import com.vtapadia.fifa.domain.Prediction;
 import com.vtapadia.fifa.domain.Subscription;
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -70,17 +74,23 @@ public class UserService {
     }
 
     //TODO
-    public List<UserResource> getAllUsers(LeagueResource leagueResource) {
-        List<User> users = userDao.getAllUsers();
-        List<UserResource> userResources = new ArrayList<>();
-        for (User user:users) {
-            userResources.add(convert(user, false));
-        }
-        return userResources;
-    }
-
     public List<UserResource> getLeaders() {
         List<User> users = userDao.getOrderedUsers();
+        return convertForLeaders(users);
+    }
+
+    public List<UserResource> getLeaders(final Long leagueId) {
+        Collection<User> users = Collections2.filter(userDao.getOrderedUsers(), new Predicate<User>() {
+            @Override
+            public boolean apply(User user) {
+                for (League league : user.getLeagues()) {
+                    if (league.id == leagueId) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
         return convertForLeaders(users);
     }
 
@@ -388,7 +398,7 @@ public class UserService {
         }
     }
 
-    private List<UserResource> convertForLeaders(List<User> users) {
+    private List<UserResource> convertForLeaders(Collection<User> users) {
         List<UserResource> userResources = new ArrayList<>();
         int rank=0;//TODO handle when the tournament has no leaders
         long points = -1;

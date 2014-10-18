@@ -16,7 +16,7 @@ import java.util.List;
 public class LeagueDAO extends AbstractDAO {
     Logger log = LoggerFactory.getLogger(LeagueDAO.class);
 
-    public List<League> getLeaguesForUser(User user) {
+    public List<League> getLeaguesForOwnerUser(User user) {
         Criteria criteria = getCriteria();
         criteria.add(Restrictions.eq("leagueOwner", user));
         return criteria.list();
