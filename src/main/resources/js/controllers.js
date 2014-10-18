@@ -18,11 +18,11 @@ efifaAppCtrls.controller('MainCtrl',function($scope, $location, $http) {
             'url': '/leaders'
         },
         {
-            'name': 'Groups',
+            'name': 'Team Standings',
             'url': '/teams'
         },
         {
-            'name': 'Statistics',
+            'name': 'Prediction Meter',
             'url': '/stats'
         },
         {
