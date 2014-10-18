@@ -20,11 +20,8 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public class MatchDAO extends AbstractDAO {
+public class MatchDAO extends AbstractDAO<Match> {
     Logger log = LoggerFactory.getLogger(MatchDAO.class);
-
-    @PersistenceContext
-    private EntityManager entityManager;
 
     @Autowired
     private PredictionDAO predictionDAO;
@@ -32,8 +29,7 @@ public class MatchDAO extends AbstractDAO {
     public Match getMatch(long matchId) {
         Criteria criteria = getCriteria();
         criteria.add(Restrictions.eq("id", matchId));
-        List<Match> matches = criteria.list();
-        return matches.get(0);
+        return (Match) criteria.uniqueResult();
     }
 
     public List<Match> getPendingMatches() {
@@ -65,7 +61,7 @@ public class MatchDAO extends AbstractDAO {
     }
 
     public List<Match> getAllFrozenMatches() {
-        Query query = entityManager.createNativeQuery("select * from ef_match " +
+        Query query = getEntityManager().createNativeQuery("select * from ef_match " +
                 "where match_date<=current_timestamp order by match_date desc" //future matches
                 , // teams are decided
                 Match.class);
@@ -101,12 +97,12 @@ public class MatchDAO extends AbstractDAO {
                         teamB.setPoints(teamB.getPoints() + 3);
                     }
                 }
-                entityManager.persist(teamA);
-                entityManager.persist(teamB);
+                getEntityManager().persist(teamA);
+                getEntityManager().persist(teamB);
             } else {
                 log.warn("update team for next match to be done manually");
             }
-            entityManager.persist(match);
+            getEntityManager().persist(match);
             List<Prediction> predictions = predictionDAO.getForMatch(match);
             for (Prediction prediction : predictions) {
                 int scored = 0;
@@ -128,17 +124,12 @@ public class MatchDAO extends AbstractDAO {
                 prediction.setPoints(scored*multiplier);
                 prediction.getUser().setPoints(prediction.getUser().getPoints() + (scored*multiplier));
                 log.info("User " +prediction.getUser().getUser_id() + " scored " + (scored*multiplier) + " points.");
-                entityManager.persist(prediction);
-                entityManager.persist(prediction.getUser());
+                getEntityManager().persist(prediction);
+                getEntityManager().persist(prediction.getUser());
             }
-            entityManager.flush();
-            entityManager.clear();
+            getEntityManager().flush();
+            getEntityManager().clear();
         }
-    }
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return this.entityManager;
     }
 
     @Override

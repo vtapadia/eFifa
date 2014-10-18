@@ -19,23 +19,13 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public class UserDAO extends AbstractDAO {
-    @PersistenceContext
-    private EntityManager entityManager;
+public class UserDAO extends AbstractDAO<User> {
 
     public User getLoggedInUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Criteria criteria = getCriteria();
         criteria.add(Restrictions.eq("user_id", authentication.getName()));
-        List<User> users = criteria.list();
-        if (users.size()>1) {
-            throw new RuntimeException("multiple returned, only one should be possible " + authentication.getName());
-        }
-        User user = null;
-        if (users.size()==1) {
-            user = users.get(0);
-        }
-        return user;
+        return (User) criteria.uniqueResult();
     }
 
     public User getUser(String userId) {
@@ -55,19 +45,13 @@ public class UserDAO extends AbstractDAO {
             Roles roles = new Roles();
             roles.setUserId(user.getUser_id());
             roles.setRole(Roles.DefinedRole.USER);
-            entityManager.persist(roles);
+            getEntityManager().persist(roles);
         }
         user.setLastUpdated(new Date());
-        entityManager.persist(user);
+        getEntityManager().persist(user);
         return true;
     }
 
-    public boolean save(List<User> users) {
-        for (User user : users) {
-            entityManager.persist(user);
-        }
-        return true;
-    }
     public List<User> getAllUsers() {
         Criteria criteria = getCriteria();
         criteria.addOrder(Order.desc("name"));
@@ -78,33 +62,22 @@ public class UserDAO extends AbstractDAO {
         Criteria criteria = getCriteria();
         criteria.add(Restrictions.eq("subscription", Subscription.FULL));
         criteria.addOrder(Order.desc("points"));
-//        Query query = entityManager.createNativeQuery("select * from ef_user where points in (select * from ( " +
-//                "select distinct points from ef_user order by points desc " +
-//                ") where rownum <= " + max + ") order by points desc,id asc", User.class);
         return criteria.list();
     }
 
     public List<User> getOrderedUsers() {
-//        Criteria criteria = getCriteria();
-//        criteria.add(Restrictions.eq("subscription", Subscription.FULL));
-//        criteria.addOrder(Order.desc("points + globalTeamPoints + globalGoalPoints"));
-        Query query = entityManager.createNativeQuery("select * from ef_user where subscription='FULL' order by points+global_team_points+global_goal_points desc", User.class);
+        Query query = getEntityManager().createNativeQuery("select * from ef_user where subscription='FULL' order by points+global_team_points+global_goal_points desc", User.class);
         return query.getResultList();
     }
 
     public List<BigInteger> getDistinctPoints() {
-        Query query = entityManager.createNativeQuery("select distinct (points+global_team_points+global_goal_points) as totalPoints from ef_user order by totalPoints desc");
+        Query query = getEntityManager().createNativeQuery("select distinct (points+global_team_points+global_goal_points) as totalPoints from ef_user order by totalPoints desc");
         return (List<BigInteger>) query.getResultList();
     }
 
     public int getRegisteredUserCount() {
-        Query query = entityManager.createNativeQuery("select count(*) from ef_user");
+        Query query = getEntityManager().createNativeQuery("select count(*) from ef_user");
         return Integer.parseInt(query.getSingleResult().toString());
-    }
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return entityManager;
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.vtapadia.fifa.domain.User;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.DistinctRootEntityResultTransformer;
+import org.hibernate.transform.ResultTransformer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -18,14 +20,11 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public class PredictionDAO extends AbstractDAO {
+public class PredictionDAO extends AbstractDAO<Prediction> {
     Logger log = LoggerFactory.getLogger(PredictionDAO.class);
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
     public Prediction getById(long id) {
-        Query query = entityManager.createNativeQuery("select * from ef_prediction where id=?1", Prediction.class);
+        Query query = getEntityManager().createNativeQuery("select * from ef_prediction where id=?1", Prediction.class);
         query.setParameter(1,id);
         Prediction prediction = (Prediction) query.getSingleResult();
         return prediction;
@@ -94,7 +93,7 @@ public class PredictionDAO extends AbstractDAO {
             prediction.setMatch(match);
             prediction.setTeamAScore(0);
             prediction.setTeamBScore(0);
-            entityManager.persist(prediction);
+            save(prediction);
         } else {
             log.debug("Ignoring for default prediction " + user.getUser_id() + " match " + match.getId());
         }
@@ -120,18 +119,8 @@ public class PredictionDAO extends AbstractDAO {
             prediction.setTeamAScore(teamAScore);
             prediction.setTeamBScore(teamBScore);
         }
-        entityManager.persist(prediction);
+        save(prediction);
         return prediction;
-    }
-
-    public void save(Prediction prediction) {
-        entityManager.persist(prediction);
-    }
-
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return entityManager;
     }
 
     @Override

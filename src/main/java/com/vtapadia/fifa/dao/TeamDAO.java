@@ -11,13 +11,10 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
-public class TeamDAO extends AbstractDAO {
-
-    @Autowired
-    private EntityManager entityManager;
+public class TeamDAO extends AbstractDAO<Team> {
 
     public List<Team> getAllTeams() {
-        Query query = entityManager.createNativeQuery("select * from ef_team order by team_group, " +
+        Query query = getEntityManager().createNativeQuery("select * from ef_team order by team_group, " +
                 "points desc, (goals_for-goals_against) desc, goals_for desc", Team.class);
         return query.getResultList();
     }
@@ -31,11 +28,6 @@ public class TeamDAO extends AbstractDAO {
         } else {
             throw new RuntimeException("Ideally not possible, team not found");
         }
-    }
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return this.entityManager;
     }
 
     @Override

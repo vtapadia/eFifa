@@ -11,10 +11,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public class TournamentDAO extends AbstractDAO {
-    @Autowired
-    EntityManager entityManager;
-
+public class TournamentDAO extends AbstractDAO<Tournament> {
     public Tournament getCurrentTournament() {
         Criteria criteria = getCriteria();
         criteria.add(Restrictions.eq("status", Status.ACTIVE));
@@ -33,11 +30,6 @@ public class TournamentDAO extends AbstractDAO {
             return list.get(0);
         }
         return null;
-    }
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return entityManager;
     }
 
     @Override

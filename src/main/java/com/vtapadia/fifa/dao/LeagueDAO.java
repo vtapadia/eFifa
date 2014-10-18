@@ -16,9 +16,6 @@ import java.util.List;
 public class LeagueDAO extends AbstractDAO {
     Logger log = LoggerFactory.getLogger(LeagueDAO.class);
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
     public List<League> getLeaguesForUser(User user) {
         Criteria criteria = getCriteria();
         criteria.add(Restrictions.eq("leagueOwner", user));
@@ -28,11 +25,6 @@ public class LeagueDAO extends AbstractDAO {
     public boolean save(League league) {
         getEntityManager().persist(league);
         return true;
-    }
-
-    @Override
-    protected EntityManager getEntityManager() {
-        return entityManager;
     }
 
     @Override
